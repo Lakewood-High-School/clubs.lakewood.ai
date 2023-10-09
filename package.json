@@ -1,0 +1,26 @@
+{
+  "name": "clubs.lakewood.ai",
+  "version": "1.0.0",
+  "description": "The clubs page for lakewood.ai",
+  "main": "index.js",
+  "repository": "https://github.com/Lakewood-High-School/clubs.lakewood.ai",
+  "author": "Lakewood High School",
+  "license": "MIT",
+  "packageManager": "yarn@3.6.3",
+  "type": "module",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-append": "^0.3.4",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "sass": "^1.68.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "del": "^7.1.0",
+    "webpack": "^5.88.2",
+    "webpack-stream": "^7.0.0"
+  }
+}

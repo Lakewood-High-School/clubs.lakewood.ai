@@ -1,0 +1,10 @@
+extends ../../uni/page-template.pug
+
+block title
+    title Test Page
+    
+prepend side-bar
+    - const current_page = "test"
+
+block main-site
+    include main-site.pug

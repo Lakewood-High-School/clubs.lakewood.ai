@@ -1,0 +1,19 @@
+doctype html
+head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(rel="apple-touch-icon", size="76x76", href="/SpartanFullLogo.png")
+    link(rel="icon", type="image/png", href="/SpartanFullLogo.png")
+    block title
+
+    //- CSS Files
+    link(rel="stylesheet", href="../kit.css")
+    link(rel="stylesheet", href="css/style.css")
+
+body.g-sidenav-show.bg-gray-100.dark-version
+    block side-bar
+        include side-bar.pug
+    block main-site
+
+    //- Compiled TypeScript
+    script(src="js/main.js")

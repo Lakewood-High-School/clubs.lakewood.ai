@@ -1,0 +1,13 @@
+# yarn
+.yarn/unplugged
+.yarn/install-state.gz
+.yarn/cache
+.pnp.cjs
+.pnp.mjs
+
+# distribution files
+dist/*
+!dist/assets
+
+# ide stuff
+.vscode/*

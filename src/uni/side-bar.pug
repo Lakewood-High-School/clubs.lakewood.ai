@@ -1,0 +1,16 @@
+mixin sidenav-item(active, name, path)
+  li.nav-item
+    a.nav-link.text-white(class={"bg-gradient-primary active": active}, href=path)= name
+
+.sidenav.navbar.navbar-vertical.navbar-expand-xs.border-0.border-radius-xl.my-3.fixed-start.ms-3.bg-gradient-dark
+  .sidenav-header
+    a.navbar-brand.m-0(href="#")
+      img.navbar-branch-img.h-100(src="/SpartanFullLogo.png", alt="lhs_logo")
+      span.ms-2.font-weight-bold.text-white Clubs
+  hr.horizontal.light.mt-0.mb-2
+  .collapse.navbar-collapse.w-auto.ps
+    ul.navbar-nav
+      //- pages is passed as a variable in gulp. It's just a dump of sites.json
+      each info in pages
+        - const show_image = info.name === current_page
+        +sidenav-item(show_image, info.displayName, info.path)

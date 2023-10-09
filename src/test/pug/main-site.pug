@@ -1,0 +1,22 @@
+//- You can use this as a normal html element with +text-card, and any classes
+//- that you add (such as for bootstrap grid stuff) will get applied to the
+//- outermost div (any attributes really, but I put that in with the idea of
+//- adding classes). Then you just put in the body of the card. If you don't put
+//- in a body for the card it will be "PUG: NO TEXT PROVIDED".
+mixin text-card
+    div&attributes(attributes)
+        .card.card-frame
+            .card-body
+                if block
+                    block
+                else
+                    span PUG: NO TEXT PROVIDED
+                    
+
+.main-content.position-relative.max-height-vh-100.h-100.border-radius-lg.ps.ps--active-y
+      #main-page.container-fluid.py-4
+        .row
+            +text-card.col-xl-3.col-sm-6.mb-xl-0.mb-4
+                span This is some text within a card body
+            +text-card.col-xl-3.col-sm-6.mb-xl-0.mb-4 
+                span This is some also text within a card body as well

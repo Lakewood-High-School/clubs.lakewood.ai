@@ -1,0 +1,27 @@
+//- You can use this as a normal html element with +text-card, and any classes
+//- that you add (such as for bootstrap grid stuff) will get applied to the
+//- outermost div (any attributes really, but I put that in with the idea of
+//- adding classes). Then you just put in the body of the card. If you don't put
+//- in a body for the card it will be "PUG: NO TEXT PROVIDED".
+mixin text-card
+    div&attributes(attributes)
+        .card.card-frame
+            .card-body
+                if block
+                    block
+                else
+                    span PUG: NO TEXT PROVIDED
+                    
+
+.main-content.position-relative.max-height-vh-100.h-100.border-radius-lg.ps.ps--active-y
+      #main-page.container-fluid.py-4
+        .row
+            +text-card.col-xl-3.col-sm-6.mb-xl-0.mb-4
+                span This is some text within a card body
+            +text-card.col-xl-3.col-sm-6.mb-xl-0.mb-4 
+                span This is some also text within a card body as well
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Integer quis auctor elit sed vulputate. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Turpis egestas maecenas pharetra convallis posuere morbi. Tortor posuere ac ut consequat semper viverra. Ipsum dolor sit amet consectetur adipiscing. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Massa eget egestas purus viverra accumsan in nisl. A arcu cursus vitae congue mauris. Aliquet nibh praesent tristique magna sit amet purus gravida. Risus nec feugiat in fermentum. Libero id faucibus nisl tincidunt eget nullam non nisi est. Consequat semper viverra nam libero justo laoreet sit amet. Arcu ac tortor dignissim convallis aenean et tortor. Tellus in metus vulputate eu. Id donec ultrices tincidunt arcu non sodales neque sodales. Tristique senectus et netus et. Nulla pellentesque dignissim enim sit amet venenatis urna cursus. Lacus vestibulum sed arcu non odio euismod lacinia.
+        p Ridiculus mus mauris vitae ultricies leo. Semper auctor neque vitae tempus quam pellentesque nec nam aliquam. Quis auctor elit sed vulputate mi sit amet mauris. Egestas sed tempus urna et pharetra. Est ullamcorper eget nulla facilisi etiam. Accumsan tortor posuere ac ut consequat semper viverra nam libero. Eget magna fermentum iaculis eu non. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna. Blandit libero volutpat sed cras ornare arcu dui vivamus arcu. Eu mi bibendum neque egestas.
+        p Amet mattis vulputate enim nulla aliquet porttitor. Aenean vel elit scelerisque mauris. Tortor posuere ac ut consequat semper. Id faucibus nisl tincidunt eget nullam non nisi. Viverra nam libero justo laoreet sit amet cursus sit amet. Ultrices gravida dictum fusce ut placerat orci nulla. Ultrices gravida dictum fusce ut placerat orci nulla. Amet tellus cras adipiscing enim eu turpis egestas pretium. Ut placerat orci nulla pellentesque dignissim enim sit amet venenatis. Ut tristique et egestas quis. Laoreet non curabitur gravida arcu ac tortor. Metus dictum at tempor commodo ullamcorper a lacus.
+        p Mattis nunc sed blandit libero volutpat. Etiam erat velit scelerisque in. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula. Orci dapibus ultrices in iaculis nunc sed augue lacus. Diam quis enim lobortis scelerisque. Non curabitur gravida arcu ac tortor dignissim. Aliquet eget sit amet tellus cras adipiscing enim. Laoreet suspendisse interdum consectetur libero id. Pharetra convallis posuere morbi leo. Tortor aliquam nulla facilisi cras. Cras tincidunt lobortis feugiat vivamus at.
+        p Sollicitudin ac orci phasellus egestas tellus. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Habitant morbi tristique senectus et. Viverra vitae congue eu consequat ac felis. Donec ac odio tempor orci dapibus ultrices in. Etiam erat velit scelerisque in dictum. Fames ac turpis egestas maecenas pharetra convallis. Proin nibh nisl condimentum id venenatis a. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Elementum integer enim neque volutpat ac tincidunt vitae. Sodales neque sodales ut etiam sit amet nisl purus. Nam libero justo laoreet sit amet cursus sit amet. Elit ut aliquam purus sit amet.
