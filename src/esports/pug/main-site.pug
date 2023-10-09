@@ -1,0 +1,72 @@
+//- You can use this as a normal html element with +text-card, and any classes
+//- that you add (such as for bootstrap grid stuff) will get applied to the
+//- outermost div (any attributes really, but I put that in with the idea of
+//- adding classes). Then you just put in the body of the card. If you don't put
+//- in a body for the card it will be "PUG: NO TEXT PROVIDED".
+mixin text-card
+  div&attributes(attributes)
+    .card.card-frame
+      .card-body
+        if block
+          block
+        else
+          span PUG: NO TEXT PROVIDED
+          
+
+.main-content.position-relative.max-height-vh-100.h-100.border-radius-lg.ps.ps--active-y
+    #main-page.container-fluid.py-4
+      .row
+        +text-card.col-xl-3.col-sm-6.mb-xl-0.mb-4: a(href="https://forms.gle/uy55LR7gREKvWruX9", target="_blank")
+            table(style="text-align: center; margin-right: 10px")
+              tr: td(style="padding-bottom: 20px")
+                br
+                img(src="assets/forms-logo.png", width="50px", height="50px")
+              tr: td: span Register your game and student info!
+        +text-card.col-xl-3.col-sm-6.mb-xl-0.mb-4: a(href="https://coaching.vanta.gg/sign-up/gamer", target="_blank")
+            table(style="text-align: center; margin-right: 10px")
+              tr: td(style="padding-bottom: 20px")
+                br
+                img(src="assets/vanta-logo.png", width="50px", height="50px")
+              tr: td: span Make your account <br/> (invite code 896331)
+        +text-card.col-xl-3.col-sm-6.mb-xl-0.mb-4: a(href="https://discord.gg/9emUGEhdHN", target="_blank")
+          table(style="text-align: center; margin-right: 10px")
+            tr: td(style="padding-bottom: 20px")
+              br
+              img(src="assets/discord-logo.png", width="50px", height="50px")
+            tr: td
+              br
+              span Join our Official Discord!
+      .row(style="padding-top: 20px")
+        h1 Welcome to eSports @ Lakewood High School
+        table#home-table
+          tr
+            td
+              p Welcome to your homepage for eSports at Lakewood High School! Our eSports program partners with Florida eSports Leagues including those offered by Vanta and Sunshine State eSports League. Through these partnerships we can offer competitive opportunities in games such as League of Legends, Rocket League, and Super Smash Bros. Ultimate.
+              p If you have any question, concerns, or suggestions, feel free to contact Mr. Cortez at cortezjo@pcsb.org
+            td(width="50%", style="padding-left: 150px; text-align: center")
+              #discord-widget
+                iframe(width="424", height="238", src="https://www.youtube.com/embed/QD2-khpxGHg", title="Vanta Trailer", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", allowfullscreen)
+          tr
+            table#schedule-table
+              h2 Weekly Game Schedule
+              tr
+                th Day
+                th Game
+                th Time
+              -
+                const schedule = [
+                  ["Monday", "League of Legends", "4:00pm"],
+                  ["Monday", "Super Smash Bros. (Trios)", "4:00pm"],
+                  ["Monday", "Apex Legends", "4:00pm"],
+                  ["Tuesday", "Valorant", "4:00pm"],
+                  ["Tuesday", "Rocket League", "4:00pm"],
+                  ["Wednesday", "Chess", "4:00pm"],
+                  ["Wednesday", "Overwatch 2", "4:00pm"],
+                  ["Thursday", "Super Smash Bros. (Solos)", "4:00pm"],
+                  ["Friday", "Fortnite", "4:00pm"],
+                  ["Friday", "Tetris", "4:00pm"]
+                ]
+              each line in schedule
+                tr
+                  each cell in line
+                    td= cell

@@ -25,10 +25,6 @@ import ts from 'gulp-typescript';
 import webpack from 'webpack-stream';
 import { deleteAsync } from 'del';
 import readline from 'readline/promises';
-const user_input = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
 const pages = JSON.parse(readFileSync('sites.json', 'utf8'));
 
@@ -146,7 +142,8 @@ export const compile_kit = parallel(
 
 // Pass
 export const pass = parallel(
-    pass_file('./src/SpartanFullLogo.png', './dist/', 'pass_lhs_logo_home')
+    pass_file('./src/SpartanFullLogo.png', './dist/', 'pass_lhs_logo_home'),
+    pass_file('./src/esports/assets/*', './dist/esports/assets/', 'pass_esports_assets')
 );
 
 const build_scripts = pages.map(p => build_page(p.name));
@@ -164,6 +161,12 @@ async function copy_over_index(input, output, title, name) {
     await writeFile(output, name_replace);
 }
 export async function new_page() {
+    // Usually I would open this interface at the top of the file, but it was
+    // preventing gulp from closing after doing other tasks that didn't close it
+    const user_input = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
     const name = await user_input.question('Name for new page: ');
     const displayName = await user_input.question('Name to be displayed in sidebar: ');
     user_input.close();

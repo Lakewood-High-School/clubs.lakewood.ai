@@ -19,7 +19,14 @@ if [ -f $APACHE_CONFIG_PATH ]; then
 else
 	CreateConfigurationFile
 fi
-echo "Completed setup"
 
+echo "Installing packages"
 corepack enable
 yarn install
+echo "Installed packages"
+
+echo "Building site"
+yarn gulp build_site
+echo "Built site"
+
+echo "Completed setup"
