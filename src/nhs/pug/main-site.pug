@@ -1,0 +1,66 @@
+//- You can use this as a normal html element with +text-card, and any classes
+//- that you add (such as for bootstrap grid stuff) will get applied to the
+//- outermost div (any attributes really, but I put that in with the idea of
+//- adding classes). Then you just put in the body of the card. If you don't put
+//- in a body for the card it will be "PUG: NO TEXT PROVIDED".
+mixin text-card
+  div&attributes(attributes)
+    .card.card-frame
+      .card-body
+        if block
+          block
+        else
+          span PUG: NO TEXT PROVIDED
+
+//- There is a row of news cards at the top, but they all look the same so I am
+//- defining a mixin here to make the code nicer
+mixin news-card(click_address, image_url, img_width_override="50px")
+  +text-card.col-xl-3.col-sm-6.mb-xl-0.mb-4
+    a(href=click_address, target="_blank")
+      table(style="text-align: center; margin-right: 10px")
+        tr: td(style="padding-bottom: 20px")
+          br
+          img(src=image_url, width=img_width_override, height="50px")
+        tr: td
+          br
+          if block
+            block
+          else
+            span PUG: NO TEXT PROVIDED
+          
+
+.main-content.position-relative.max-height-vh-100.h-100.border-radius-lg.ps.ps--active-y
+    #main-page.container-fluid.py-4
+      .row
+        +news-card("https://forms.gle/YSmmKLmZBj7GB22p7", "assets/forms-logo.png")
+          span Didn't receive an invite? Apply here!
+        +news-card("https://www.remind.com/get_the_app?path=%2Fclasses", "assets/remind-logo.png", "75px")
+          span Join the Official Lakewood NHS Remind!
+        +news-card("https://www.oneblood.org", "assets/oneblood-logo.jpg")
+          span Check out the Blood Drive Sponsor!
+      .row(style="padding-top: 20px")
+        h1 Welcome to the National Honor Society Chapter <br /> @ Lakewood High School
+        table#home-table
+          tr
+            td
+              p Welcome to your homepage for NHS at Lakewood High School! National Honor Society is a club that focuses on community service and leadership. We are a group of students who are dedicated to helping our community and school. We are also dedicated to helping our members become better leaders and people. We are excited to have you join us!
+              p If you have questions, concerns, or suggestions, feel free to contact Mr. Cortez at cortezjo@pcsb.org
+            td(width="50%", style="padding-left: 150px; text-align: center;")
+              #discord-widget
+                include instagram-embed.pug
+          tr
+            table#schedule-table
+              h2 Upcoming Schedule
+              tr
+                th Date
+                th Event
+                th Time
+              -
+                const schedule = [
+                  ["Thursday, October 25th", "Induction Ceremony", "6:00pm"]
+                ]
+              each line in schedule
+                tr
+                  each cell in line
+                    td= cell
+    

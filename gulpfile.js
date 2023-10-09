@@ -1,12 +1,3 @@
-// Web dev is weird and so is this file. Compiling things like SCSS, Pug.js,
-// and TypeScript is very formulaic so to avoid that and reduce magics, the
-// file is broken into two sections. Every compilation thing that needs to be
-// done is given a metacompiler with the naming convention <thing>_compiler.
-// That function takes in the path of the file to be compiled, the output
-// and the name of the task that will do that compiling. It returns an
-// anonymous function that does that compiling. There are then exports that
-// run tons of these constructed anonymous functions in parallel.
-
 // All of the sites are based off of the same template and structure. Because of
 // this, I am able to just have a list of sites in sites.json, and then go
 // through the steps of compiling everything in that file. 
@@ -143,7 +134,8 @@ export const compile_kit = parallel(
 // Pass
 export const pass = parallel(
     pass_file('./src/SpartanFullLogo.png', './dist/', 'pass_lhs_logo_home'),
-    pass_file('./src/esports/assets/*', './dist/esports/assets/', 'pass_esports_assets')
+    pass_file('./src/esports/assets/*', './dist/esports/assets/', 'pass_esports_assets'),
+    pass_file('./src/nhs/assets/*', './dist/nhs/assets/', 'pass_nhs_assets')
 );
 
 const build_scripts = pages.map(p => build_page(p.name));
