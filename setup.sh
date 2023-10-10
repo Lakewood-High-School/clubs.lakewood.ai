@@ -2,7 +2,7 @@ APACHE_CONFIG_PATH=/etc/apache2/sites-available/clubs.lakewood.ai.conf
 
 function CreateConfigurationFile() {
 	printf "Creating configuration file symlink"
-	ln -s `pwd`/lakewood.ai.conf $APACHE_CONFIG_PATH
+	ln -s `pwd`/clubs.lakewood.ai.conf $APACHE_CONFIG_PATH
 	if [ $? -eq 0 ]; then
 		echo " [DONE]"
 	else
